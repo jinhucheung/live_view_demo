@@ -5,8 +5,8 @@ defmodule LiveViewDemoWeb.WeatherLive do
     ~H"""
     <div>
       <form phx-submit="set-location">
-        <input name="location" placeholder="Location" value={@location}/>
-        <%= @weather %>
+        <input name="location" placeholder="Location" value={@location} />
+        {@weather}
       </form>
     </div>
     """
@@ -23,6 +23,7 @@ defmodule LiveViewDemoWeb.WeatherLive do
   defp weather(local) do
     {:ok, {{_, 200, _}, _, body}} =
       :httpc.request(:get, {~c"http://wttr.in/#{URI.encode(local)}?format=1", []}, [], [])
+
     IO.iodata_to_binary(body)
   end
 end

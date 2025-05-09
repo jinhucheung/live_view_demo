@@ -22,6 +22,7 @@ defmodule LiveViewDemoWeb.Router do
     live "/", HomeLive, :index
     live "/chat", ChatLive, :index
     live "/weather", WeatherLive, :index
+    live "/counter", CounterLive, :index
   end
 
   # Other scopes may use custom stacks.
